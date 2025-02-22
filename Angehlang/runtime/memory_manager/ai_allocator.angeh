@@ -1,0 +1,22 @@
+Breathe Intelligence into AIAllocator:
+  Inhale Requirements -> Analyze:
+    - ModelPath: "alloc_predictor.onnx"
+    - FeaturePreprocessing:
+        ForEach "data_type", "access_pattern":
+          Preprocess into "features"
+
+  Exhale AllocationStrategy -> Allocate:
+    - Prediction:
+        Use ONNXRuntime
+        Input: "features"
+        Output: Predicted ["size", "alignment", "location"]
+    - DecisionMaking:
+        Size: Cast to int
+        Alignment: PowerOfTwo
+        Location: If "location_score" > 0.5 Then "GPU" Else "RAM"
+
+  Implement MemoryMap -> Manage:
+    - On Variable "var_name" with Data "data":
+        Allocate Memory:
+          Address: OS_Alloc(Predicted "size")
+          Store: {"address", "size", "alignment", "location"} 

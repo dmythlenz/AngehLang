@@ -1,0 +1,3 @@
+def test_quantum_chaos():  
+    simulate_qubit_loss(0.5)  # 50% qubit dropout  
+    assert result == expected  

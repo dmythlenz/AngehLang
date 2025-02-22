@@ -1,0 +1,12 @@
+Breathe Efficiency into Code:
+  PatternMatch:
+    - LegacyLoop → FlowOperator:
+        "for (i=0; i<N; i++) { ... }" ➜ "Inhale data -> Process -> Exhale"
+    
+    - VerboseConditional → IntentGuard:
+        "if (x > 0 && x < 10)" ➜ "require x in 1..9"
+  
+  ApplyTransform:
+    - RemoveRedundantBraces
+    - InferTypesFromContext
+    - CollapseNestedConstructs

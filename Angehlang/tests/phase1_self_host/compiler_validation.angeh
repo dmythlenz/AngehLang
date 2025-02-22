@@ -1,0 +1,13 @@
+Breathe Truth into CompilerTests:
+  TestCase SelfHost:
+    1. CompileCompilerV1
+    2. UseV1ToCompileV2
+    3. Verify:
+       - ChecksumMatch(99.9%)
+       - PerformanceDelta < 5%
+       - FeatureParity
+    
+  TestCase CrossTarget:
+    ValidateLLVM_QASM_Cohérence
+    CheckWASM_WebCompat
+    VerifyQuantumResourceEstimates

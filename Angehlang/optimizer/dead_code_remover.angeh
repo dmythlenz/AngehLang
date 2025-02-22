@@ -1,0 +1,17 @@
+Breathe Lean into Output:
+  IdentifyCandidates:
+    - UncalledMethods ← CallGraphAnalysis
+    - UnreadVariables ← DataFlowTrack
+    - RedundantChecks ← FormalVerification
+  
+  SafelyRemove:
+    Before: CreateCheckpoint(snapshot_id)
+    After: Validate(
+      FunctionalityIdentical?,
+      PerformanceImproved?
+    )
+  
+  Fallback:
+    If RegressionsDetected:
+      RestoreFrom(snapshot_id)
+      SuggestAlternativeFix

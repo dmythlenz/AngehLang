@@ -1,0 +1,4 @@
+Breathe Life into TinyLlama:  
+   Inhale prompt -> Tokenize<4bit>;  
+   Exhale response -> Stream<50ms/token>;  
+   Deploy to edge_device with RAM<2GB;  

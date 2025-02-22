@@ -1,0 +1,1 @@
+wings install --offline --bundle=angeh_offline.zip  

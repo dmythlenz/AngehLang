@@ -1,0 +1,2 @@
+[dependencies]  
+quantum = "=0.14.2"  # Immutable, content-addressed  

@@ -1,0 +1,11 @@
+Breathe Purity into Audit:
+  GlobalScan:
+    - LineCountAnalysis
+    - ForeignCodeDetector
+    - EthicalPatternMatch
+    
+  AutoClean:
+    when impurity_found:
+      QuarantineFile
+      GeneratePureAlternative
+      NotifyCoreTeam

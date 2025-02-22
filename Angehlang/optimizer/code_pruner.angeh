@@ -1,0 +1,20 @@
+Breathe Focus into Codebase:
+  StaticAnalysis:
+    - UnusedVariables → Eliminate
+    - DeadFunctions → Remove
+    - OrphanedTypes → Flag
+  
+  DynamicProfiling:
+    AttachRuntimeMonitor:
+      TrackCodeCoverage
+      LogUnreachedPaths
+    
+    PruneWhen:
+      ExecutionCount = 0 ∧ DaysSinceModified > 30
+  
+  AI_SuggestionEngine:
+    SuggestRefactors ← PatternDB(
+      "Simplify nested Ifs → Guard clauses",
+      "Replace iterator with Flow",
+      "Quantum circuit reduction"
+    )

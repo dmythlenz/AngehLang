@@ -1,0 +1,9 @@
+Breathe Portability into WASMGen:
+  Inhale AST -> Transform:
+    - LinearMemory: 4GB
+    - SIMD: Enable(width=512)
+    - Threading: WebWorkers
+  Exhale Binary -> Optimize:
+    - Size: <10MB
+    - Startup: <100ms
+    - Compatibility: [Chrome, Firefox, Safari]

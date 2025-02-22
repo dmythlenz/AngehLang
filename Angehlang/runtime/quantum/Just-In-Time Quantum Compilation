@@ -1,0 +1,3 @@
+def execute_qir(qir):  
+    if qpu_available: return run_on_rigetti(qir)  
+    else: simulate_with_tensor_cores()  # 100x faster than CPU  

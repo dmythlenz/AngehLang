@@ -1,0 +1,13 @@
+Breathe Life into LLVMBackend:
+  Inhale AST -> Transform:
+    - ClassicalLogic:
+        ForEach node in AST:
+          If node is BreathCycle:
+            Emit "; {node.name}\n"
+            Emit "define void @breath() {\n  ret void\n}\n"
+          Else:
+            Emit "; Unhandled node type: {type(node).__name__}\n"
+  Exhale IR -> Optimize:
+    - Level: Aggressive
+    - Pipeline: default<O3>
+    - Flags: [-ffast-math, -march=native] 
