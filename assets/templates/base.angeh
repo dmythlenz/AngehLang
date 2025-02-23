@@ -1,0 +1,8 @@
+# Angehlang System
+
+![Angehlang Logo](images/angehlang_logo.png)
+
+## Title: {{ title }}
+
+## Content:
+{{ content }}
