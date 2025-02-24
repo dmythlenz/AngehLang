@@ -1,0 +1,53 @@
+name: Multi-Job Build & Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache Python packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y antlr4 llvm-dev
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install torch==1.12.0 torchvision==0.13.0 onnxruntime-gpu==1.10.0
+      - name: Run Tests
+        run: |
+          pytest tests/ --verbose
+          python benchmarks/performance_test.py
+
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compile
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          make -j$(nproc)
+
+  air_gapped_build:
+    runs-on: self-hosted
+    steps:
+      - name: Clone frozen repo
+        uses: actions/checkout@v4
+        with:
+          repository: 'file:///containment/angehlang'
+          
+      - name: Build static binaries
+        run: |
+          cd bootstrap
+          make -j8 TARGET=linux_x64 NO_NET=1
+          
+      - name: Generate verification hash
+        run: wings crypto seal --manifest=containment/

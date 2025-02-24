@@ -1,2 +1,2 @@
 # AngehLang
-new way of coding simply powerful
+ Coding with eas like only breathing 

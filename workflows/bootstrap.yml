@@ -1,0 +1,23 @@
+# AngehLang Logo: path_to_logo/AngehLang_logo.png
+name: Bootstrap AngehLang
+on: 
+  workflow_dispatch:
+    inputs:
+      seed_compiler:
+        description: 'Path to seed compiler'
+        required: true
+        default: 'reference/compiler_v0.py'
+
+jobs:
+  transpile_seed:
+    runs-on: quantum-ubuntu
+    steps:
+      - uses: actions/checkout@v4
+      - name: Transpile Seed
+        run: |
+          python ${{ inputs.seed_compiler }} \
+            --target=angeh \
+            --output=compiler/self_host/
+          
+      - name: Validate Self-Host Core
+        run: wings test --phase=1 --strict

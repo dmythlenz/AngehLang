@@ -1,0 +1,12 @@
+entangle GlobalHealing {
+  @crowdsourced(reward="ANGH_Tokens")
+  fn report_error(e: Error) {
+    submit_to_corpus(e);
+    train_models(e);
+  }
+  
+  auto_fix(e: Error) {
+    let fix = query_corpus(e);
+    apply_patch(fix) if ethical_approval(fix);
+  }
+}

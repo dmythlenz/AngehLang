@@ -1,0 +1,11 @@
+// AngehLang Logo: path_to_logo/AngehLang_logo.png
+Breathe Precision into QASMGen:
+  Inhale QuantumBlock -> Transform:
+    - QubitAllocation: DynamicGrid
+    - GateDecomposition: 
+        BasisGates: [h, cx, rz, sx]
+        OptimizationLevel: 3
+    - ErrorCorrection: SurfaceCode(distance=5)
+  Exhale QASM -> Verify:
+    - QubitUsage < DeviceLimit
+    - GateFidelity > 99.99%

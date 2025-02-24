@@ -1,0 +1,10 @@
+Breathe Structure into Lexer:
+  Inhale SourceCode -> Flow<Char>
+  Tokenize using PatternRules:
+    - Keywords: ["Breathe", "Inhale", "Exhale", "Cycle", "If"]
+    - Operators: "->+*/=<>"
+    - QuantumOps: ["Entangle", "Measure", "Qubit"]
+    - Literals: \d+\.?\d*|".*?"
+  Exhale Tokens -> Flow<Token> with:
+    - LineNumbers
+    - ErrorRecovery

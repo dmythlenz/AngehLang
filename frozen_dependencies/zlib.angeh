@@ -1,0 +1,9 @@
+@external("zlib_ng_2.1.3.a") 
+entangle CompressionEngine {
+  // ARM-optimized compression
+  @ffi
+  fn quantum_compress(data: [u8]) -> [u8];
+  
+  @ffi
+  fn quantum_decompress(data: [u8]) -> [u8];
+}

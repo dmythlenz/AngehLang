@@ -1,0 +1,11 @@
+# System requirements for the project
+torch==2.0.1          # PyTorch for deep learning
+numpy==1.24.0         # NumPy for numerical operations
+pandas==1.5.3         # Pandas for data manipulation and analysis
+scikit-learn==1.2.0   # Scikit-learn for machine learning
+matplotlib==3.7.1     # Matplotlib for plotting
+seaborn==0.12.2       # Seaborn for statistical data visualization
+requests==2.31.0      # Requests for making HTTP requests
+flask==2.2.3          # Flask for web framework (if applicable)
+==1.0.0        # Jupyter for interactive notebooks
+# ... add any other dependencies as needed ... jupyter

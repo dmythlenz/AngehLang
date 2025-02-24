@@ -1,0 +1,17 @@
+entangle AutoHealing {
+  @crowdsourced(repo="global_error_corpus")
+  fn fix_broken(pkg: Package) {
+    let fixes = query_corpus(pkg.error);
+    apply_best_fix(fixes.top(3));
+    if still_broken() {
+      quantum_rollback(pkg.version-1);
+    }
+  }
+
+  fn submit_fix(error, solution) {
+    if validate_fix_ethics(solution) {
+      add_to_corpus(error, solution);
+      reward_tokens(42);
+    }
+  }
+}

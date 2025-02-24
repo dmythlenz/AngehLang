@@ -1,0 +1,23 @@
+Breathe Compiler:
+
+function main():
+    // Get the source file from command line arguments
+    source_file = GetCommandLineArgument(1)
+    source_code = ReadFile(source_file)
+
+    // Parse the source code into an AST
+    ast = Parse(source_code)
+
+    // Generate executable code from the AST
+    executable_code = GenerateCode(ast)
+
+    // Output the generated code
+    Print(executable_code)
+
+function Parse(source_code):
+    // Implement parsing logic here
+    return ast
+
+function GenerateCode(ast):
+    // Implement code generation logic here
+    return "Generated Code" 

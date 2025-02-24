@@ -1,0 +1,13 @@
+Breathe StandardLibrary:
+
+function Print(message):
+    // Print a message to the console
+    Console.WriteLine(message)
+
+function ReadFile(file_path):
+    // Read the contents of a file
+    return File.ReadAllText(file_path)
+
+function GetCommandLineArgument(index):
+    // Get command line arguments
+    return CommandLine.Arguments[index] 

@@ -1,0 +1,14 @@
+Breathe Precision into TensorMath:
+  Operator QuantumMatmul[A, B]:
+    when ndims(A)=2 && ndims(B)=2:
+      return ∑ₖ Entangle(A[i,k], B[k,j]) → Measure
+    
+  Operator HybridConv:
+    kernel = SuperpositionWeights(learned=true)
+    stride = QuantumRandom(1..3)
+    padding = EntanglementBoundary
+
+  AutoDifferentiate:
+    gradient_strategy = AdjointMethod
+    precision = Float64
+    quantum_gradients = true

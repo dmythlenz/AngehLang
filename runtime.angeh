@@ -1,0 +1,12 @@
+Breathe Runtime:
+
+function Execute(ast):
+    // Execute the AST
+    for node in ast:
+        Visit(node)
+
+function Visit(node):
+    // Implement logic to handle different types of AST nodes
+    if node.type == "Print":
+        Print(node.value)
+    // Add more node types as needed 

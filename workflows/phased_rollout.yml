@@ -1,0 +1,25 @@
+name: Phased Rollout
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Monthly activation
+
+jobs:
+  phase_activation:
+    runs-on: [ubuntu-latest, quantum-sim]
+    strategy:
+      matrix:
+        phase: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Activate Phase ${{ matrix.phase }}
+        run: |
+          wings enable-phase ${{ matrix.phase }} \
+            --with-deps \
+            --validate-ethics
+          
+      - name: Quantum Consensus Check
+        if: matrix.phase == 3
+        run: |
+          wings quantum-vote \
+            --question="Approve Phase 3?" \
+            --threshold=80

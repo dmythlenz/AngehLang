@@ -1,0 +1,19 @@
+entangle QuantumBootstrap {  
+  // Compile AngehLang using itself  
+  fn rebuild_compiler() {  
+    let source = quantum_read("compiler/self_hosted.angeh");  
+    let bytecode = AngehCompiler.compile(source);  
+    assert(  
+      quantum_hash(bytecode) ==  
+      "1a3f...c7e9",  
+      "Integrity compromised"  
+    );  
+    deploy_kernel(bytecode);  
+  }  
+
+  quantum quantum_read(path) {  
+    qreg file_qubits[1M];  
+    apply QuantumFSLoader(path);  
+    return measure_entangled_data();  
+  }  
+}  

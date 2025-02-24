@@ -1,0 +1,11 @@
+// Intent-Driven Grammar (ANTLR4)  
+grammar Angeh;  
+
+program       : (statement | ai_directive)+;  
+statement     : breath_cycle | quantum_op | domain_declaration;  
+breath_cycle  : 'Breathe' ID 'into' ID '{' (inhale | exhale)+ '}';  
+inhale        : 'Inhale' source '->' type ('with' filter)?;  
+exhale        : 'Exhale' action ('->' target)?;  
+quantum_op    : 'Entangle' qubit_list 'with' coherence_level;  
+domain_declaration : 'In' domain_type '{' code_block '}';  
+ai_directive  : '@AI' ':' STRING;  

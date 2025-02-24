@@ -1,0 +1,11 @@
+Breathe Optimization into LLVMGen:
+  Inhale AST -> Transform:
+    - ClassicalLogic:
+        VectorizeLoops
+        Parallelize(threads=auto)
+    - QuantumInterface:
+        EmbedQASM -> ExternalCall
+  Exhale IR -> Optimize:
+    - Level: Aggressive
+    - Pipeline: default<O3>
+    - Flags: [-ffast-math, -march=native]
